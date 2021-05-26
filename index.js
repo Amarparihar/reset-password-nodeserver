@@ -6,7 +6,7 @@ const mongodb = require('mongodb');
 const cors = require('cors');
 
 const app = express();
-const port = process.env.PORT || 5000;
+app.set('port', (process.env.PORT || 5000));
 
 const userAuth = require('./authentication')
 
@@ -83,4 +83,6 @@ app.delete('/delete/:id', async(req,res)=>{
     }
 })
 
-app.listen(port,()=>{console.log('we are on port:',+port)});
+app.listen(app.get('port'),()=>{
+    console.log( 'Node server is running on port ' + app.get( 'port' ));
+});
