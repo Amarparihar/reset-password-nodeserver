@@ -10,8 +10,8 @@ const DB = 'usercreadentials';
 const transporter = nodeMailer.createTransport({
     service:'gmail',
     auth: {
-        user: 'amarparihar1359@gmail.com',
-        pass: '7218867376'
+        user: 'pariharamar1079@gmail.com',
+        pass: '9284264870'
     }
 });
 
@@ -73,7 +73,7 @@ router.post('/forgot-password', async(req,res)=>{
             console.log(randomString);
             res.status(200).json({message:'string genrated' , randomString});
             const mailOptions = {
-                from: 'amarparihar1359@gmail.com', // sender address
+                from: 'pariharamar1079@gmail.com', // sender address
                 to: data.email, // list of receivers
                 subject: 'Forgot password', // Subject line
                 html: `<p>update ur password here <a href="https://modest-nobel-97ff69.netlify.app/update-password">${randomString}</a> </p>`// plain text body
@@ -125,3 +125,6 @@ router.put('/update-password', async(req,res)=>{
 
 
 module.exports = router;
+
+
+
