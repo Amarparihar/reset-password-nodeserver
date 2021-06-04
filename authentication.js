@@ -15,7 +15,9 @@ const transporter = nodeMailer.createTransport({
     }
 });
 
-
+// function myFunction() {
+//     location.replace("https://modest-nobel-97ff69.netlify.app/update-password")
+//   }
 
 router.post('/login', async(req,res)=>{
     try {
@@ -76,7 +78,9 @@ router.post('/forgot-password', async(req,res)=>{
                 from: 'pariharamar1079@gmail.com', // sender address
                 to: data.email, // list of receivers
                 subject: 'Forgot password', // Subject line
-                html: `<p>update ur password here <a href="https://modest-nobel-97ff69.netlify.app/update-password">${randomString}</a> </p>`// plain text body
+                html: `<p>update ur password here <button onclick={
+                    location.replace("https://modest-nobel-97ff69.netlify.app/update-password")
+                  }>${randomString}</button> </p>`// plain text body
               };
 
             transporter.sendMail(mailOptions , (err,info)=>{
