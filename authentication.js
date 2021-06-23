@@ -26,7 +26,7 @@ router.post('/login', async(req,res)=>{
         if(data){
             let isValid = await bcrypt.compare(req.body.password,data.password)
             if(isValid){
-               res.status(200).json({message:'Login Sucessfull'});
+               res.status(200).json({message:'Login Successfull'});
             }else{
                 res.status(401).json({message:'Invalid Creadentials'});
             }
@@ -51,7 +51,7 @@ router.post('/register', async (req,res)=>{
             let hash = await bcrypt.hash(req.body.password,salt);
             req.body.password = hash;
             await db.collection('users').insertOne(req.body);
-            res.status(200).json({message:'user registered sucessfully'});
+            res.status(200).json({message:'user registered successfully'});
             client.close();
         }else{
             res.status(404).json({message:'user already registered'});
